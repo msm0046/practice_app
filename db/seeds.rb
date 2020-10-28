@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# TODO: faker_name_list を使って初期データを投入する
+# require_relative './faker_name_list'
+# faker_name_list.each do |head_yomi, name|
+#   Children.create!(head_yomi: head_yomi, name: name)
+# end
