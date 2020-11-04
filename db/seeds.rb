@@ -7,7 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # TODO: faker_name_list を使って初期データを投入する
-# require_relative './faker_name_list'
-# faker_name_list.each do |head_yomi, name|
-#   Children.create!(head_yomi: head_yomi, name: name)
-# end
+require_relative './faker_name_list'
+Name.destroy_all
+FakerNameList::FAKER_NAME_LIST.each do |initial, name|
+  #   Children.create!(head_yomi: head_yomi, name: name)
+  Name.create!(initial: initial, name: name)
+end
