@@ -9,7 +9,7 @@
 # TODO: faker_name_list を使って初期データを投入する
 require_relative './faker_name_list'
 Name.destroy_all
-FakerNameList::FAKER_NAME_LIST.each do |initial, name|
-  #   Children.create!(head_yomi: head_yomi, name: name)
+# FakerNameList::FAKER_NAME_LIST.each do |initial, name|
+FAKER_NAME_LIST.each do |initial, name|
   Name.create!(initial: initial, name: name)
 end
