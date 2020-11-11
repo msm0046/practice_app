@@ -1,4 +1,4 @@
 class ListOfNamesController < ApplicationController
-  def index
+  def a_column_index
   end
 end
