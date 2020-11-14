@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'list_of_names/a_column_index'
+  get 'list_of_names/index'
   # get '/'
   get 'fifty_character_table/index'
   root 'fifty_character_table#index'
