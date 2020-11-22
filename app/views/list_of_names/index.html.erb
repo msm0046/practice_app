@@ -2,5 +2,7 @@
 <p>Find me in app/views/list_of_names/index.html.erb</p>
 
 <% @name_list.each do |person| %>
-  <%= person.name %>
+  <%# person変数にnameモデルからのインスタンスを代入 %>
+  <%= link_to person.name, '/list_of_names/show?id=91'  %>
 <% end %>
+
