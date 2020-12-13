@@ -14,6 +14,8 @@ class ListOfNamesController < ApplicationController
       @message = "#{@name.name}さん、出席済みです"
     # 合致したidがなければ、nilを返す
     else
+      # 新しいインスタンスを生成する
+      attendance = Attendance.new
       # name_idカラムに@name.idを代入する
       attendance.name_id = @name.id
       # また、Date.todayの値をAttendancesテーブルのattendanceカラムにいれる
