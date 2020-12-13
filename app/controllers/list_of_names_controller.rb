@@ -10,7 +10,11 @@ class ListOfNamesController < ApplicationController
     attendance = Attendance.find_by(name_id: @name.id)
     # もし、合致するidがあれば、
     if attendance
-      # Attendancesテーブルのname_idカラムに@name.idの値をいれる
+      # "○○さん、出席済みです"と表示する
+      @message = "#{@name.name}さん、出席済みです"
+    # 合致したidがなければ、nilを返す
+    else
+      # name_idカラムに@name.idを代入する
       attendance.name_id = @name.id
       # また、Date.todayの値をAttendancesテーブルのattendanceカラムにいれる
       attendance.attendance_date = Date.today
@@ -18,10 +22,6 @@ class ListOfNamesController < ApplicationController
       attendance.save
       # "○○さん、出席しました"と表示する
       @message = "#{@name.name}さん、出席しました"
-    # 合致したidがなければ、
-    else
-      # "○○さん、出席済みです"と表示する
-      @message = "#{@name.name}さん、出席済みです"
     end
   end
 end
