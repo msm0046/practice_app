@@ -4,19 +4,23 @@ class ListOfNamesController < ApplicationController
   end
 
   def show
+    # Namesテーブルからparams[:id]と合致するidを検索し、その結果を@name変数に代入する
     @name = Name.find_by(id: params[:id])
-    # Attendanceテーブルから@name.idと合致するidを検索する
-    # Attendanceテーブルに合致するidがあれば、Attendanceテーブルのnames_idカラムにnameのidを挿入する
-    attendance = Attendance.find_by(names_id: @name.id)
+    # Attendancesテーブルから@name.idと合致するidを検索し、その結果をattendance変数に代入する
+    attendance = Attendance.find_by(name_id: @name.id)
+    # もし、合致するidがあれば、
     if attendance
-      attendance.names_id = @name.id
-      # names_idカラムに値が入ったら、Attendanceテーブルのattendance_dateカラムに今日の日付を挿入する
+      # Attendancesテーブルのname_idカラムに@name.idの値をいれる
+      attendance.name_id = @name.id
+      # また、Date.todayの値をAttendancesテーブルのattendanceカラムにいれる
       attendance.attendance_date = Date.today
+      # attendance変数の値を保存する
       attendance.save
+      # "○○さん、出席しました"と表示する
       @message = "#{@name.name}さん、出席しました"
+    # 合致したidがなければ、
     else
-      # Attendanceテーブルに合致するidがなければ、nilを返す
-      # "出席済み"の表示を代入する
+      # "○○さん、出席済みです"と表示する
       @message = "#{@name.name}さん、出席済みです"
     end
   end
