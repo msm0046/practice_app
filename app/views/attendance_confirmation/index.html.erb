@@ -1,2 +1,12 @@
 <h1>AttendanceConfirmation#index</h1>
 <p>Find me in app/views/attendance_confirmation/index.html.erb</p>
+
+<h1>出席済み</h1>
+<% @alreday_attendant.each do |name| %>
+    <%= name %>
+<% end %>
+
+<h1>未出席</h1>
+<% @not_attendant_yet.each do |name| %>
+    <%= name %>
+<% end %>
