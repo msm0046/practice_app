@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'admin/attendance_confirmation/index'
+  get 'admin/attendance_confirmation', to: 'attendance_confirmation#index'
+  get 'admin/attendance_confirmation/index', to: 'attendance_confirmation#index'
   get 'list_of_names/index'
   get 'list_of_names/show'
   # get '/'
