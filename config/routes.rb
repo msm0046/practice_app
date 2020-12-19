@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin/attendance_confirmation/index'
   get 'list_of_names/index'
   get 'list_of_names/show'
   # get '/'
