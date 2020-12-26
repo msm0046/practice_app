@@ -16,7 +16,7 @@ class AttendanceConfirmationController < ApplicationController
       # Name レコードから、関連付けを用いて Attendance レコードを持ってくる
 
       # 今日の日付と一致するものがあるか、探したい
-      if alrealreday_attendant?(name.attendances)
+      if alreday_attendant?(name.attendances)
         # 出席済みの場合
         @alreday_attendant.push(name.name) # push で値を入れてあげる
       else
