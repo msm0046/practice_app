@@ -50,6 +50,17 @@ class AttendanceConfirmationController < ApplicationController
     # 指定した年月を受け取る
     @year = params[:year]
     @month = params[:month]
+
+    # Nameテーブルのnameカラムから全てのレコードを取得する
+    # all_name_list = []
+    @name_list = Name.all.map { |record| record.name }
+    # name_list.each do |name|
+    #   all_name_list.push(name.name)
+    # end
+
+    # MEMO: 2つの道
+    # 1. SQL に頼らず、Ruby のコードで出席確認の集計をする
+    # 2. SQL で予め 出席確認の集計をし、Ruby (Rails) から利用する (group by)
   end
 
   private
