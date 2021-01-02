@@ -1,15 +1,28 @@
 class AttendanceConfirmationController < ApplicationController
+  # TODO: daily アクションにリネームする
   def index
     # TODO: 日付指定に対応する
+    # TODO: 日付指定がない場合に、今日の日付でページ表示する
     # NOTE: いまは「今日の日付の出席・未出席」の振り分けのみが実装済み
+    # URL で /:year/:month/:day と指定された場合
+    # params[:year], params[:month], params[:day] のように値が取得できる
+
+    # Date, DateTime など Ruby の標準クラスがある
+    target_date = Date.parse("#{params[:year]}-#{params[:month]}-#{params[:day]}")
+
+    @year = params[:year]
+    @month = params[:month]
+    @day = params[:day]
+    # @result = Attendance.find_by(attendance_date: target_date) # 仮表示用
 
     # Nameテーブルから全てのレコードを取得する
     name_list = Name.all
-    # Name.all は Array と同じように扱える
-    # .each メソッドでループ処理をすると、レコード一つだけに対する処理ができる
 
     @alreday_attendant = [] # 出席済み
     @not_attendant_yet = [] # 未出席
+
+    # Name.all は Array と同じように扱える
+    # .each メソッドでループ処理をすると、レコード一つだけに対する処理ができる
     name_list.each do |name| # name は一つ分の Name インスタンス (= レコード) が代入される
       # Attendanceテーブルのidとname_list.idが一致するものがあるか検索する
       #
