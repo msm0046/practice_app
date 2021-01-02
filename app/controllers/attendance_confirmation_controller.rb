@@ -46,6 +46,12 @@ class AttendanceConfirmationController < ApplicationController
     end
   end
 
+  def monthly
+    # 指定した年月を受け取る
+    @year = params[:year]
+    @month = params[:month]
+  end
+
   private
 
   def alreday_attendant?(attendance_list, target_date)

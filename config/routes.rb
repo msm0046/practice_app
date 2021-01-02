@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get 'admin/attendance_confirmation/index', to: 'attendance_confirmation#index'
   get 'admin/attendance_confirmation/daily/:year/:month/:day', to: 'attendance_confirmation#daily'
   # TODO: 「毎月」の出欠表示を追加する
+  get 'admin/attendance_confirmation/monthly/:year/:month', to: 'attendance_confirmation#monthly'
   get 'list_of_names/index'
   get 'list_of_names/show'
   # get '/'
