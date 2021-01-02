@@ -15,8 +15,8 @@ class AttendanceConfirmationController < ApplicationController
       #
       # Name レコードから、関連付けを用いて Attendance レコードを持ってくる
 
-      # 今日の日付と一致するものがあるか、探したい
-      if alreday_attendant?(name.attendances)
+      # 指定した日付 (target_date) と一致するものがあるか、探したい
+      if alreday_attendant?(name.attendances, target_date)
         # 出席済みの場合
         @alreday_attendant.push(name.name) # push で値を入れてあげる
       else
@@ -36,10 +36,10 @@ class AttendanceConfirmationController < ApplicationController
 
   private
 
-  def alreday_attendant?(attendance_list)
+  def alreday_attendant?(attendance_list, target_date)
     attendance_list.each do |attendance|
       # 出席済みの場合
-      return true if attendance.attendance_date == Date.today
+      return true if attendance.attendance_date == target_date
     end
 
     false
