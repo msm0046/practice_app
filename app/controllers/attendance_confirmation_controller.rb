@@ -1,6 +1,5 @@
 class AttendanceConfirmationController < ApplicationController
-  # TODO: daily アクションにリネームする
-  def index
+  def daily
     # TODO: 日付指定に対応する
     # TODO: 日付指定がない場合に、今日の日付でページ表示する
     # NOTE: いまは「今日の日付の出席・未出席」の振り分けのみが実装済み
