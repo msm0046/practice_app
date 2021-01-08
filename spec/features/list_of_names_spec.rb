@@ -28,6 +28,11 @@ RSpec.feature "ListOfNames", type: :feature do
 
       expect(page.body).to match '出席しました'
     end
+
+    after do
+      Timecop.return
+      Attendance.destroy_all
+    end
   end
 
   describe '1日の出席操作2回目は' do
