@@ -1,0 +1,13 @@
+<h1><%= @year %></h1>
+<h1>AttendanceConfirmation#monthly</h1>
+<p>Find me in app/views/attendance_confirmation/monthly.html.erb</p>
+
+<%= @year %>年
+<%= @month %>月
+
+<h2>児童名</h2>
+<ul>
+  <% @name_list.each do |name| %>
+    <li><%= name %></li>
+  <% end %>
+</ul>

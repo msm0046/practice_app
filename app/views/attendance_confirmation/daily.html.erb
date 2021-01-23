@@ -1,0 +1,17 @@
+<h1>AttendanceConfirmation#daily</h1>
+<p>Find me in app/views/attendance_confirmation/daily.html.erb</p>
+<%= @year %>年
+<%= @month %>月
+<%= @day %>日
+
+<h1>出席済み</h1>
+<% @alreday_attendant.each do |name| %>
+    <%= name %>
+<% end %>
+
+<h1>未出席</h1>
+<% @not_attendant_yet.each do |name| %>
+    <%= name %>
+<% end %>
+
+<%= @result %>
