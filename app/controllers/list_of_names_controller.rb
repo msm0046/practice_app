@@ -7,7 +7,7 @@ class ListOfNamesController < ApplicationController
     # Namesテーブルからparams[:id]と合致するidを検索し、その結果を@name変数に代入する
     @name = Name.find_by(id: params[:id])
     # Attendancesテーブルから@name.idと合致するidを検索し、その結果をattendance変数に代入する
-    attendance = Attendance.find_by(name_id: @name.id)
+    attendance = Attendance.find_by(name_id: @name.id, attendance_date: Date.today)
     # もし、合致するidがあれば、
     if attendance
       # "○○さん、出席済みです"と表示する
