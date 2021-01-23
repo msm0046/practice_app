@@ -51,16 +51,23 @@ class AttendanceConfirmationController < ApplicationController
     @year = params[:year]
     @month = params[:month]
 
-    # Nameテーブルのnameカラムから全てのレコードを取得する
-    # all_name_list = []
-    @name_list = Name.all.map { |record| record.name }
-    # name_list.each do |name|
-    #   all_name_list.push(name.name)
-    # end
-
     # MEMO: 2つの道
     # 1. SQL に頼らず、Ruby のコードで出席確認の集計をする
     # 2. SQL で予め 出席確認の集計をし、Ruby (Rails) から利用する (group by)
+
+    # 児童ごとに利用回数を表示する
+    # NameテーブルとAttendanceテーブルを結合する
+    # Nameテーブルのnameカラムごとにまとめる
+    # まとめたものをカウントする
+    # HINT: 日付型として、値を組み上げると、その月の「最初の日」「最後の日」がメソッド呼び出しで指定できる
+    # TODO: 日付型から、「最初の日」「最後の日」を呼び出せるメソッドを探す
+    target_date = Date.parse("#{params[:year]}-#{params[:month]}-1")
+    Name.joins(:attendances)
+        .where('attendances.attendance_date': (target_date.beginning_of_month..target_date.at_end_of_month))
+        .group(:name)
+        .count
+    # コピペ検証用
+    # Name.joins(:attendances).where('attendances.attendance_date': (Date.new(2020, 1, 1)..Date.new(2021, 1, 9))).group(:name).count
   end
 
   private
