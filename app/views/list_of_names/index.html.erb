@@ -1,0 +1,10 @@
+<h1>ListOfNames#index</h1>
+<p>Find me in app/views/list_of_names/index.html.erb</p>
+
+<% @name_list.each do |person| %>
+  <%# person変数にnameモデルからのインスタンスを代入 %>
+  <%# person.nameに対応したidをリンクとして表示している %>
+  <%= link_to person.name, "/list_of_names/show?id=#{ person.id }"  %>
+<% end %>
+
+<%= link_to "もどる", "/fifty_character_table/index" %>
