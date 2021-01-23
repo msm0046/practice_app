@@ -5,7 +5,6 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
-# Use sqlite3 as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
@@ -35,6 +34,12 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'faker'
   gem 'faker_japanese'
+  gem 'fuubar'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'timecop'
 end
 
 group :development do
