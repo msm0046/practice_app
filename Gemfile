@@ -39,6 +39,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rspec'
   gem 'rspec-rails'
+  gem 'sqlite3'
   gem 'timecop'
 end
 

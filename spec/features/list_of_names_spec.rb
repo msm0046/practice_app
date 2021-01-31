@@ -13,7 +13,7 @@ end
 
 RSpec.feature "ListOfNames", type: :feature do
   # HINT: テスト環境へのデータ投入は次のコマンドで実施: rails db:seed RAILS_ENV=test
-  let(:name_id) { 20 } # db/seeds.rb で投入されるデータの適当な ID 値を指定
+  let(:name_id) { Name.first.id } # db/seeds.rb で投入されるデータの適当な ID 値を指定
 
   describe '1日の出席操作1回目は' do
     before do
