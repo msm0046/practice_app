@@ -23,7 +23,7 @@ class ListOfNamesController < ApplicationController
   end
 
   def already_attendance_today?
-    Attendance.find_by(name_id: @name.id)
+    Attendance.find_by(name_id: @name.id, attendance_date: Date.today)
   end
 
   def create_attendance_for_today
